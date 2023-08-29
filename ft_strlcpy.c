@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+// ยังไม่เส็จ
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
@@ -19,6 +20,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 	i = 0;
 	len = ft_strlen(src);
+	if (dst[0] == '\0' && src[0] == '\0')
+		return (0);
 	if (size > 0)
 	{
 		while (src[i] != '\0' && i < size - 1)
@@ -31,17 +34,19 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	return (len);
 }
 
-//#include <stdio.h>
-//#include <bsd/string.h>
-//int main()
-//{
-//	char a[999];
-//	char test[999];
-//	char b[20] = "ad\0";
-//	printf("%ld\n",ft_strlcpy(a,b,2));
-//	printf("%s\n",a);
-//	printf("%s\n",b);
-//	printf("%ld\n",strlcpy(test,b,2));
-//	printf("%s\n",test);
-//	printf("%s\n",b);
-//}
+/*
+#include <stdio.h>
+#include <bsd/string.h>
+int main()
+{
+	char a[999];
+	char test[999];
+	char b[20] = "ad\0";
+	printf("%ld\n",ft_strlcpy(a,b,2));
+	printf("%s\n",a);
+	printf("%s\n",b);
+	printf("%ld\n",strlcpy(test,b,2));
+	printf("%s\n",test);
+	printf("%s\n",b);
+}
+*/
