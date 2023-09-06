@@ -17,9 +17,21 @@ char	*ft_strchr(const char *s, int c)
 	char	*ptr;
 
 	ptr = (char *)s;
-	if (!(*s))
-		return (NULL);
+	c = (unsigned char)c;
 	while (*ptr != c)
+	{
+		if (!*ptr)
+			return (NULL);
 		ptr++;
+	}
 	return (ptr);
 }
+
+/*
+int main()
+{
+	char	*a = "Hello World";
+	char	b = 'o';
+	printf("%s",ft_strchr(a,b));
+}
+*/

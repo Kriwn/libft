@@ -12,15 +12,17 @@
 
 #include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
-	char *ptr;
-	char *ans;
+	char	*ptr;
+	char	*ans;
 
 	ptr = (char *)s;
-	if (!(*s))
-		return (NULL);
-	while(*ptr)
+	ans = NULL;
+	c = (unsigned char)c;
+	if (c == 0)
+		return (ptr + ft_strlen(s));
+	while (*ptr)
 	{
 		if (*ptr == c)
 			ans = ptr;
@@ -28,3 +30,12 @@ char *ft_strrchr(const char *s, int c)
 	}
 	return (ans);
 }
+
+/*
+int main()
+{
+	char	*a = "Hello World";
+	char	b = 'o';
+	printf("%s",ft_strrchr(a,b));
+}
+*/

@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-// ยังไม่เส็จ
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
@@ -35,6 +34,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 }
 
 /*
+ run file .c -lbsd
 #include <stdio.h>
 #include <bsd/string.h>
 int main()

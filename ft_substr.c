@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 17:51:41 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/08/25 17:51:41 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/05 10:43:30 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/05 10:43:30 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-// ยังไม่เส็จ
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t len;
-	size_t	i;
-	size_t	n;
+	char 			*str;
+	unsigned int	i;
 
 	i = 0;
-	n = 0;
-	len = ft_strlen(src);
-	if (dst[0] == '\0' && size == 0)
-		return (len);
-
-	if (size > 0)
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	while (i < len)
 	{
-		while (dst[i] != '\0')
-			i++;
-		while (src[n] != '\0' && n < size - 1)
-		{
-			dst[i + n] = src[n];
-			n++;
-		}
-		dst[i + n] = '\0';
+		str[i] = s[start + i];
+		i++;
 	}
-	return (len);
+	str[i] = '\0';
+	return (str);
 }
+
+/*
+int main()
+{
+	char *a = "Hello World";
+	char *str = ft_substr(a,6,5);
+	printf("%s",str);
+}
+*/

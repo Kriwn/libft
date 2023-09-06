@@ -1,41 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 17:51:41 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/08/25 17:51:41 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/02 14:06:24 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/02 14:06:24 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-// ยังไม่เส็จ
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int	ft_atoi(const char *nptr)
 {
-	size_t len;
-	size_t	i;
-	size_t	n;
+	int		ans;
+	int		pos;
+	char	*ptr;
 
-	i = 0;
-	n = 0;
-	len = ft_strlen(src);
-	if (dst[0] == '\0' && size == 0)
-		return (len);
-
-	if (size > 0)
+	ptr = (char *)nptr;
+	ans = 0;
+	pos = 1;
+	while (*ptr >= '\t' && *ptr <= '\r')
+		ptr++;
+	if (*ptr == '+' || *ptr == '-')
 	{
-		while (dst[i] != '\0')
-			i++;
-		while (src[n] != '\0' && n < size - 1)
-		{
-			dst[i + n] = src[n];
-			n++;
-		}
-		dst[i + n] = '\0';
+		if (*ptr == '-')
+			pos = -1;
+		ptr ++;
 	}
-	return (len);
+	while (*ptr >= '0' && *ptr <= '9')
+	{
+		ans = (ans * 10) + *ptr - '0';
+		ptr++;
+	}
+	return (ans * pos);
 }
+
+/*
+int main()
+{
+	char a[] ="+1a234a";
+	printf("%d",ft_atoi(a));
+}
+*/

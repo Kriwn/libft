@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 17:51:41 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/08/25 17:51:41 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/01 17:33:25 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/01 17:33:25 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-// ยังไม่เส็จ
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void *ft_calloc(size_t nmemb, size_t size)
 {
-	size_t len;
-	size_t	i;
-	size_t	n;
+		void *ptr;
 
-	i = 0;
-	n = 0;
-	len = ft_strlen(src);
-	if (dst[0] == '\0' && size == 0)
-		return (len);
-
-	if (size > 0)
-	{
-		while (dst[i] != '\0')
-			i++;
-		while (src[n] != '\0' && n < size - 1)
-		{
-			dst[i + n] = src[n];
-			n++;
-		}
-		dst[i + n] = '\0';
-	}
-	return (len);
+		if (size == SIZE_MAX && nmemb == SIZE_MAX)
+			return NULL;
+		ptr = malloc(nmemb * size);
+		if (!(ptr))
+			return NULL;
+		ft_bzero (ptr,nmemb);
+		return (ptr);
 }
+
+/*
+int main()
+{
+	int *ptr;
+	ptr = ft_calloc(SIZE_MAX,SIZE_MAX);
+}
+*/

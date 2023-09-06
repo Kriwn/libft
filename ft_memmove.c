@@ -1,41 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 17:51:41 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/08/25 17:51:41 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/01 11:09:11 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/01 11:09:11 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-// ยังไม่เส็จ
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t len;
 	size_t	i;
-	size_t	n;
+	unsigned char	*destt;
+	unsigned char	*srcc;
 
+	srcc = (unsigned char *)src;
+	destt = (unsigned char *)dest;
 	i = 0;
-	n = 0;
-	len = ft_strlen(src);
-	if (dst[0] == '\0' && size == 0)
-		return (len);
-
-	if (size > 0)
+	if (n == 0 || !(src))
+		return destt;
+	if (dest <= src)
 	{
-		while (dst[i] != '\0')
-			i++;
-		while (src[n] != '\0' && n < size - 1)
+		while(i < n)
 		{
-			dst[i + n] = src[n];
-			n++;
+			destt[i] = srcc[i];
+			i++;
 		}
-		dst[i + n] = '\0';
 	}
-	return (len);
+	else
+	{
+		while (n--)
+			destt[n] = srcc[n];
+	}
+	return (destt);
 }
+
+/*
+int main()
+{
+	char a[20] = "Geeksfor";
+	printf("%ld\n",strlen(a));
+	printf("%p",ft_memmove(NULL,NULL,2));
+
+}
+*/

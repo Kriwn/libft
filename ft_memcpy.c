@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 17:51:41 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/08/25 17:51:41 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/01 18:27:00 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/01 18:27:00 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-// ยังไม่เส็จ
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t len;
 	size_t	i;
-	size_t	n;
+	unsigned char	*destt;
+	unsigned char	*srcc;
 
+	srcc = (unsigned char *)src;
+	destt = (unsigned char *)dest;
 	i = 0;
-	n = 0;
-	len = ft_strlen(src);
-	if (dst[0] == '\0' && size == 0)
-		return (len);
-
-	if (size > 0)
+	if (n == 0 || !(src))
+		return destt;
+	while(i < n)
 	{
-		while (dst[i] != '\0')
-			i++;
-		while (src[n] != '\0' && n < size - 1)
-		{
-			dst[i + n] = src[n];
-			n++;
-		}
-		dst[i + n] = '\0';
+		destt[i] = srcc[i];
+		i++;
 	}
-	return (len);
+	return (dest);
 }
+
+/*
+int main()
+{
+	char a[100] = "Geeksfor";
+	ft_memcpy(a + 5,a,strlen(a)+1);
+	printf("%s",a);
+}
+*/

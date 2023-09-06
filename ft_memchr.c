@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/25 17:51:41 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/08/25 17:51:41 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/01 23:59:39 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/01 23:59:39 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-// ยังไม่เส็จ
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t len;
-	size_t	i;
-	size_t	n;
+	unsigned char	*ptr;
 
-	i = 0;
-	n = 0;
-	len = ft_strlen(src);
-	if (dst[0] == '\0' && size == 0)
-		return (len);
-
-	if (size > 0)
+	ptr = (unsigned char *)s;
+	c = (unsigned char)c;
+	while (*ptr || n--)
 	{
-		while (dst[i] != '\0')
-			i++;
-		while (src[n] != '\0' && n < size - 1)
-		{
-			dst[i + n] = src[n];
-			n++;
-		}
-		dst[i + n] = '\0';
+		if (*ptr == c)
+			return (ptr);
+		ptr++;
 	}
-	return (len);
+	return (NULL);
 }
+
+/*
+int main()
+{
+	char	a[11] = "Hello World";
+	char	b = 'W';
+	char	*ptr = ft_memchr(a,b,7);
+	printf("%s",ptr);
+}
+*/
