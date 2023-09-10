@@ -26,48 +26,44 @@ int	check(char str,char const *set)
 	return (0);
 }
 
-size_t	cfont(char const *s1,char const *set)
+size_t cfont(char const *s1, char const *set)
 {
 	size_t	i;
 
 	i = 0;
-	while(s1[i] != '\0' && check(s1[i],set))
+	while(s1[i] && check(s1[i], set))
 		i++;
 	return (i);
 }
 
-size_t	cend(char const *s1,char const *set)
+size_t cend(size_t i,char const *s1, char const *set)
 {
-	size_t	i;
 	size_t	len;
 
-	len = 0;
-	i = ft_strlen(s1) - 1;
-	while (i && check(s1[i],set))
-	{
-		i--;
-		len++;
-	}
+	len = ft_strlen(s1);
+	while (len > i && check(s1[len - 1], set))
+        len--;
 	return (len);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t 	len;
 	char	*str;
+	size_t	font;
+	size_t	end;
 	size_t	i;
 
 	if (!*s1 || !* set)
 		return (NULL);
-	len = ft_strlen(s1) - (cfont(s1,set) + cend(s1,set));
-	i = 0;
-	str = malloc(sizeof(char) * len);
-	printf("%ld\n",len);
+	font = cfont(s1, set);
+	end = cend(font,s1,set);
+	str = malloc(sizeof(char) * (end - font) + 1);
 	if (!str)
 		return (NULL);
-	while (i < len)
+	i = 0;
+	while (i < (end - font))
 	{
-		str[i] = s1[i + 3];
+		str[i] = s1[i + font];
 		i++;
 	}
 	str[i] = '\0';
@@ -77,7 +73,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 /*
 int main()
 {
-	char a[] = "XO Hello WorldXO ";
-	printf("%s",ft_strtrim(a,"XO "));
+	char a[] = "XOAXO";
+	printf("%s",ft_strtrim(a,"XO"));
 }
 */
+
