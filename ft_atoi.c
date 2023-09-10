@@ -37,10 +37,9 @@ int	ft_atoi(const char *nptr)
 	return (ans * pos);
 }
 
-/*
+
 int main()
 {
-	char a[] ="+1a234a";
+	char a[] ="-2147483648";
 	printf("%d",ft_atoi(a));
 }
-*/
