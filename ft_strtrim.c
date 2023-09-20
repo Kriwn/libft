@@ -53,7 +53,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	end;
 	size_t	i;
 
-	if (!*s1 || !* set)
+	if (!*s1 || !*set)
 		return (NULL);
 	font = cfont(s1, set);
 	end = cend(font,s1,set);
@@ -74,7 +74,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 int main()
 {
 	char a[] = "XOAXO";
-	printf("%s",ft_strtrim(a,"XO"));
+	printf("%s",ft_strtrim(a,""));
 }
 */
+
 

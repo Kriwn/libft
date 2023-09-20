@@ -1,46 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 14:06:24 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/09/02 14:06:24 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/12 12:43:00 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/12 12:43:00 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_putstr_fd(char *s, int fd)
 {
-	int		ans;
-	int		pos;
-	char	*ptr;
+	size_t	i;
 
-	ptr = (char *)nptr;
-	ans = 0;
-	pos = 1;
-	while (*ptr >= '\t' && *ptr <= '\r')
-		ptr++;
-	if (*ptr == '+' || *ptr == '-')
-	{
-		if (*ptr == '-')
-			pos = -1;
-		ptr ++;
-	}
-	while (*ptr >= '0' && *ptr <= '9')
-	{
-		ans = (ans * 10) + *ptr - '0';
-		ptr++;
-	}
-	return (ans * pos);
+	i = 0;
+	if (!*s)
+		return ;
+	write(fb,s,ft_strlen(s));
 }
-
-/*
-int main()
-{
-	char a[] ="-2147483648";
-	printf("%d",ft_atoi(a));
-}
-*/

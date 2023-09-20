@@ -28,7 +28,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 /*
 int main()
 {
-	int *ptr;
+	char *ptr;
 	ptr = ft_calloc(SIZE_MAX,SIZE_MAX);
+	printf("%s",ptr);
 }
 */

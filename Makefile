@@ -1,7 +1,9 @@
 NAME = libft.a
 
-# Sources
-SRCS =	ft_strtrim.c
+SRCS = ft_lstnew.c ft_lstadd_front.c \
+			 ft_lstsize.c ft_lstlast.c \
+			 ft_lstadd_back.c ft_lstdelone.c \
+			 ft_lstclear.c 
 
 # Objects
 OBJS = $(SRCS:.c=.o)
@@ -23,7 +25,7 @@ $(NAME): $(OBJS)
 	$(CC) -c $(CFLAGS) $^ -o $@
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
+	rm -f $(OBJS) $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

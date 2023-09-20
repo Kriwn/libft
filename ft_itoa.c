@@ -17,6 +17,8 @@ int	countint(int n)
 	int	count;
 
 	count = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		n *= 1;
@@ -30,14 +32,6 @@ int	countint(int n)
 	return (count);
 }
 
-int check(int n)
-{
-	if (n < 0)
-	{
-		return (1);
-	}
-	return (0);
-}
 
 char	*ft_itoa(int n)
 {
@@ -45,10 +39,13 @@ char	*ft_itoa(int n)
 	char	*str;
 	int		i;
 
+	i = 0;
 	count = countint(n);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
 	if (n < 0)
 	{
-		i = check (n);
+		i = 1;
 		n *= -1;
 	}
 	str = malloc(sizeof(char) * (count + 1));
@@ -65,8 +62,10 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
+/*
 int main()
 {
-	int i = 0;
+	int i = -0;
 	printf("%s\n",ft_itoa(i));
 }
+*/

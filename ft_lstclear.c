@@ -1,46 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 14:06:24 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/09/02 14:06:24 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/14 14:36:56 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/14 14:36:56 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int		ans;
-	int		pos;
-	char	*ptr;
+	t_list	*current;
 
-	ptr = (char *)nptr;
-	ans = 0;
-	pos = 1;
-	while (*ptr >= '\t' && *ptr <= '\r')
-		ptr++;
-	if (*ptr == '+' || *ptr == '-')
+	if (lst == NULL || !*del)
+		return ;
+	while (lst != NULL)
 	{
-		if (*ptr == '-')
-			pos = -1;
-		ptr ++;
+		current = *lst;
+		(*del)(current);
+		free(current);
+		*lst = (*lst)->next;
 	}
-	while (*ptr >= '0' && *ptr <= '9')
-	{
-		ans = (ans * 10) + *ptr - '0';
-		ptr++;
-	}
-	return (ans * pos);
 }
-
-/*
-int main()
-{
-	char a[] ="-2147483648";
-	printf("%d",ft_atoi(a));
-}
-*/

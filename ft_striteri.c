@@ -1,46 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 14:06:24 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/09/02 14:06:24 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/12 13:56:04 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/12 13:56:04 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+void 	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int		ans;
-	int		pos;
-	char	*ptr;
+	unsigned int	i;
 
-	ptr = (char *)nptr;
-	ans = 0;
-	pos = 1;
-	while (*ptr >= '\t' && *ptr <= '\r')
-		ptr++;
-	if (*ptr == '+' || *ptr == '-')
+	i = 0;
+	if (!*s || !*f)
+		return ;
+	while(s[i] != '\0')
 	{
-		if (*ptr == '-')
-			pos = -1;
-		ptr ++;
+		(*f)(i, s + i);
+		i++;
 	}
-	while (*ptr >= '0' && *ptr <= '9')
-	{
-		ans = (ans * 10) + *ptr - '0';
-		ptr++;
-	}
-	return (ans * pos);
 }
-
-/*
-int main()
-{
-	char a[] ="-2147483648";
-	printf("%d",ft_atoi(a));
-}
-*/
