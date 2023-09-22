@@ -19,16 +19,30 @@ char 	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	len;
 
 	i = 0;
-	if (!*s || !*f)
+	if (!s || !f)
 		return (NULL);
 	len = ft_strlen(s);
 	str = malloc(sizeof(char) * len + 1);
-	if (str)
+	if (!str)
 		return (NULL);
 	while (i < len)
 	{
-		str[i] = (*f)(i, s[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
 	return (str);
 }
+
+/*
+char f(unsigned int i, char s)
+{
+	return s + i;
+}
+
+int main()
+{
+	char a[20] = "Hello World";
+
+	 printf("%s\n", ft_strmapi(a,f));
+}
+*/
