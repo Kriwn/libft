@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	check(char str,char const *set)
+int	check(char str, char const *set)
 {
 	size_t	i;
 
@@ -26,23 +26,23 @@ int	check(char str,char const *set)
 	return (0);
 }
 
-size_t cfont(char const *s1, char const *set)
+size_t	cfont(char const *s1, char const *set)
 {
 	size_t	i;
 
 	i = 0;
-	while(s1[i] && check(s1[i], set))
+	while (s1[i] && check(s1[i], set))
 		i++;
 	return (i);
 }
 
-size_t cend(size_t i,char const *s1, char const *set)
+size_t	cend(size_t i, char const *s1, char const *set)
 {
 	size_t	len;
 
 	len = ft_strlen(s1);
 	while (len > i && check(s1[len - 1], set))
-        len--;
+		len--;
 	return (len);
 }
 
@@ -56,7 +56,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (NULL);
 	font = cfont(s1, set);
-	end = cend(font,s1,set);
+	end = cend(font, s1, set);
 	str = malloc(sizeof(char) * (end - font) + 1);
 	if (!str)
 		return (NULL);
@@ -77,5 +77,3 @@ int main()
 	printf("%s",ft_strtrim(a,""));
 }
 */
-
-

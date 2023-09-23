@@ -23,6 +23,32 @@ void freeall(char **ptr,size_t c)
 	return (NULL);
 }
 
+char *makearray(char const *s,char c,size_t i)
+{
+	size_t	count;
+	size_t	len;
+	char	*str;
+
+	len = 0;
+	count = 0;
+	while(s[i])
+	{
+		if (s[i] == c)
+		{
+			count++;
+		}
+		if (count == i)
+		{
+			str = malloc(sizeof(char) * len + 1);
+			break;
+		}
+		else
+			len = 0;
+		len++;
+		i++;
+	}
+}
+
 size_t	count(char const *s,char c)
 {
 	size_t	count;
@@ -32,7 +58,7 @@ size_t	count(char const *s,char c)
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (s[i] == c)
+		if (s[i] == c && i != 0)
 			count++;
 		i++;
 	}
@@ -44,17 +70,29 @@ char	**ft_split(char const *s, char c)
 	char	**ptr;
 	char	*str;
 	size_t	i;
+	size_t	count;
 
 	i = 0;
+	count = count(s,c);
 	if (!*s)
 		return (NULL);
-	ptr = malloc(sizeof(char *) * count(s,c));
+	ptr = malloc(sizeof(char *) * count);
 	if (!ptr)
 		return (NULL);
+	while(i < count)
+	{
+		str = makearray(s,c,i);
+		if (!str)
+		{
+			freeall(ptr,i);
+			return (NULL);
+		}
+		
+	}
 }
 
 int main()
 {
-	char a[]="Hello_World_Baaa";
+	char a[]="_Hello_World_Baaa";
 	printf("%ld",count(a,'_'));
 }

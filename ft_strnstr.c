@@ -47,6 +47,3 @@ int main()
 	printf("%s",ft_strnstr(a,"",0));
 }
 */
-
-
-

@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	i = ft_strlen(dst);
 	if (size <= ft_strlen(dst))
 		return (ft_strlen(src) + size);
-	while(src[j] && i + j + 1 < size)
+	while (src[j] && i + j + 1 < size)
 	{
 		dst[i + j] = src[j];
 		j++;
@@ -45,4 +45,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 //	printf("%ld\n",strlcat(test,src,6));
 //	printf("%s\n",test);
 //}
-
