@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	char	*s_big;
@@ -40,8 +42,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 /*
 int main()
 {
-	char a[] = "Hello yo World fuck you";
-	char b[] = "you";
-	printf("%p\n",ft_strnstr(a,b,4));
+	char a[] = "123";
+	//char b[] = "";
+	printf("%s",ft_strnstr(a,"",0));
 }
 */
+
+
+

@@ -18,7 +18,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	ptr = (unsigned char *)s;
 	c = (unsigned char)c;
-	while (*ptr || n--)
+	while (n--)
 	{
 		if (*ptr == c)
 			return (ptr);
@@ -30,9 +30,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 /*
 int main()
 {
-	char	a[11] = "Hello World";
-	char	b = 'W';
-	char	*ptr = ft_memchr(a,b,7);
+	char	a[11] = "bonjourno";
+	char	b = 'n';
+	char	*ptr = ft_memchr(a,b,2);
 	printf("%s",ptr);
 }
 */

@@ -14,8 +14,6 @@
 
 void ft_putendl_fd(char *s, int fd)
 {
-	if (!*s)
-		return ;
-	ft_putstr_fd(s,fb);
-	write(fb,'\n',1);
+	ft_putstr_fd(s,fd);
+	write(fd,"\n",1);
 }

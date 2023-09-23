@@ -21,7 +21,7 @@ int	ft_atoi(const char *nptr)
 	ptr = (char *)nptr;
 	ans = 0;
 	pos = 1;
-	while (*ptr >= '\t' && *ptr <= '\r')
+	while (*ptr && ((*ptr >= '\t' && *ptr <= '\r') || *ptr == ' '))
 		ptr++;
 	if (*ptr == '+' || *ptr == '-')
 	{
@@ -40,7 +40,7 @@ int	ft_atoi(const char *nptr)
 /*
 int main()
 {
-	char a[] ="-2147483648";
+	char a[] ="";
 	printf("%d",ft_atoi(a));
 }
 */

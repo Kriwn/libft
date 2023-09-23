@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_putchar_fb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 14:01:03 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/09/12 14:01:03 by krwongwa         ###   ########.fr       */
+/*   Created: 2023/09/11 13:39:09 by krwongwa          #+#    #+#             */
+/*   Updated: 2023/09/11 13:39:09 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void ft_putchar_fd(char c, int fd)
 {
-	t_list	*Node;
-
-	Node = *lst;
-	if (new == NULL)
+	if (c < 0)
 		return ;
-	if (*lst == NULL)
-		*lst = new;
-	else
-	{
-		while (Node->next != NULL)
-			Node = Node->next;
-		Node->next = new;
-	}
+	c = (unsigned char)c;
+	write(fd, &c,1 );
 }
