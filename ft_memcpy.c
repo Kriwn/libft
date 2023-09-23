@@ -21,8 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	srcc = (unsigned char *)src;
 	destt = (unsigned char *)dest;
 	i = 0;
-	if (n == 0 || !(src))
-		return (destt);
+	if (!src && !dest)
+		return NULL;
 	while (i < n)
 	{
 		destt[i] = srcc[i];
@@ -34,8 +34,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 /*
 int main()
 {
-	char a[100] = "Geeksfor";
-	ft_memcpy(a + 5,a,strlen(a)+1);
-	printf("%s",a);
+	printf("%s",(char *)ft_memcpy("              ",NULL,17));
 }
 */
