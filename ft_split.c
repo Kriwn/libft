@@ -18,49 +18,29 @@ void freeall(char **ptr,size_t c)
 
 	i	= 0;
 	while (i < c)
-		free(ptr[i]);
-	free(ptr);
-	return (NULL);
-}
-
-char *makearray(char const *s,char c,size_t i)
-{
-	size_t	count;
-	size_t	len;
-	char	*str;
-
-	len = 0;
-	count = 0;
-	while(s[i])
 	{
-		if (s[i] == c)
-		{
-			count++;
-		}
-		if (count == i)
-		{
-			str = malloc(sizeof(char) * len + 1);
-			break;
-		}
-		else
-			len = 0;
-		len++;
+		free(ptr[i]);
 		i++;
 	}
+	free(ptr);
 }
+
 
 size_t	count(char const *s,char c)
 {
 	size_t	count;
 	size_t	i;
 
-	count = 1;
+	count = 0;
 	i = 0;
-	while (s[i] != '\0')
+	while (s[i])
 	{
-		if (s[i] == c && i != 0)
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i])
 			count++;
-		i++;
+		while (s[i] && s[i] != c)
+			i++;
 	}
 	return (count);
 }
@@ -68,31 +48,44 @@ size_t	count(char const *s,char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
-	char	*str;
+	size_t	start;
+	size_t	len;
 	size_t	i;
-	size_t	count;
 
+	start = 0;
+	len = 0;
 	i = 0;
-	count = count(s,c);
-	if (!*s)
+	if (!s)
 		return (NULL);
-	ptr = malloc(sizeof(char *) * count);
+	ptr = malloc(sizeof(char *) * (count(s, c) + 1));
 	if (!ptr)
 		return (NULL);
-	while(i < count)
+	while (i < count(s, c))
 	{
-		str = makearray(s,c,i);
-		if (!str)
+		while (s[start] == c)
+			start++;
+		while (s[start + len] != '\0' && s[start + len] != c)
+			len++;
+		ptr[i] = ft_substr(s, start, len);
+		if (!ptr[i])
 		{
-			freeall(ptr,i);
+			freeall(ptr, i);
 			return (NULL);
 		}
-		
+		start += len;
+		len = 0;
+		i++;
 	}
+	ptr[i] = NULL;
+	return (ptr);
 }
 
-int main()
-{
-	char a[]="_Hello_World_Baaa";
-	printf("%ld",count(a,'_'));
-}
+//int main()
+//{
+//	char **b = ft_split("  tripouille  42  ", ' ');
+//	printf("%s|\n",b[0]);
+//	printf("%s|\n",b[1]);
+//	freeall(b,2);
+//	//char **b = ft_split(0, 0);
+//}
+
