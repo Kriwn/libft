@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-void freeall(char **ptr,size_t c)
+void	freeall(char **ptr, size_t c)
 {
 	size_t	i;
 
-	i	= 0;
+	i = 0;
 	while (i < c)
 	{
 		free(ptr[i]);
@@ -25,8 +25,7 @@ void freeall(char **ptr,size_t c)
 	free(ptr);
 }
 
-
-size_t	count(char const *s,char c)
+size_t	count(char const *s, char c)
 {
 	size_t	count;
 	size_t	i;
@@ -45,9 +44,8 @@ size_t	count(char const *s,char c)
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+void	makearray(char **ptr, char const *s, char c)
 {
-	char	**ptr;
 	size_t	start;
 	size_t	len;
 	size_t	i;
@@ -55,11 +53,6 @@ char	**ft_split(char const *s, char c)
 	start = 0;
 	len = 0;
 	i = 0;
-	if (!s)
-		return (NULL);
-	ptr = malloc(sizeof(char *) * (count(s, c) + 1));
-	if (!ptr)
-		return (NULL);
 	while (i < count(s, c))
 	{
 		while (s[start] == c)
@@ -68,24 +61,34 @@ char	**ft_split(char const *s, char c)
 			len++;
 		ptr[i] = ft_substr(s, start, len);
 		if (!ptr[i])
-		{
-			freeall(ptr, i);
-			return (NULL);
-		}
+			return (freeall(ptr, i));
 		start += len;
 		len = 0;
 		i++;
 	}
 	ptr[i] = NULL;
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**ptr;
+
+	if (!s)
+		return (NULL);
+	ptr = malloc(sizeof(char *) * (count(s, c) + 1));
+	if (!ptr)
+		return (NULL);
+	makearray(ptr, s, c);
 	return (ptr);
 }
 
-//int main()
-//{
-//	char **b = ft_split("  tripouille  42  ", ' ');
-//	printf("%s|\n",b[0]);
-//	printf("%s|\n",b[1]);
-//	freeall(b,2);
-//	//char **b = ft_split(0, 0);
-//}
-
+/*
+int main()
+{
+	char **b = ft_split("  tripouille  42  ", ' ');
+	printf("%s|\n",b[0]);
+	printf("%s|\n",b[1]);
+	freeall(b,3);
+	//char **b = ft_split(0, 0);
+}
+*/

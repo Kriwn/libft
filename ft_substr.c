@@ -31,13 +31,14 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	return (str);
 }
 
-//int main()
-//{
-//	char *s = ft_substr("  tripouille  42  ",2, 10);
-//	char *a = ft_substr("  tripouille  42  ",14,2);
-//	printf("%s|\n",s);
-//	printf("%s|\n",a);
-//	free(s);
-//	free(a);
-//}
-
+/*
+int main()
+{
+	char *s = ft_substr("  tripouille  42  ",2, 10);
+	char *a = ft_substr("  tripouille  42  ",14,2);
+	printf("%s|\n",s);
+	printf("%s|\n",a);
+	free(s);
+	free(a);
+}
+*/
