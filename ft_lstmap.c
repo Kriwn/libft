@@ -25,6 +25,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		newnode = ft_lstnew(f(lst->content));
 		if (!newnode)
 		{
+			del(lst->content);
 			ft_lstclear(&head, del);
 			return (NULL);
 		}
@@ -33,7 +34,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (head);
 }
-
 //void *f(void *a)
 //{
 //	int	i;
