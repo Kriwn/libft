@@ -19,3 +19,14 @@ void	ft_putchar_fd(char c, int fd)
 	c = (unsigned char)c;
 	write(fd, &c, 1);
 }
+
+/*
+int main()
+{
+	int fd = open("test.txt",O_RDWR);
+	if (!fd)
+		printf("Pun\n");
+	ft_putchar_fd('a',fd);
+	//fclose(fd);
+}
+*/

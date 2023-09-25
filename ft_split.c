@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-
 void	freeall(char ***ptr)
 {
 	size_t	i;

@@ -18,6 +18,7 @@
 # include <stdint.h>
 # include <stdio.h>
 # include <string.h>
+# include <fcntl.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
