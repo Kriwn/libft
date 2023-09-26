@@ -17,22 +17,24 @@ int	ft_atoi(const char *nptr)
 	int		ans;
 	int		pos;
 	char	*ptr;
+	size_t	i;
 
+	i = 0;
 	ptr = (char *)nptr;
 	ans = 0;
 	pos = 1;
-	while (*ptr && ((*ptr >= '\t' && *ptr <= '\r') || *ptr == ' '))
-		ptr++;
-	if (*ptr == '+' || *ptr == '-')
+	while (ptr[i] && ((ptr[i] >= '\t' && ptr[i] <= '\r') || ptr[i] == ' '))
+		i++;
+	if (ptr[i] == '+' || ptr[i] == '-')
 	{
-		if (*ptr == '-')
+		if (ptr[i] == '-')
 			pos = -1;
-		ptr ++;
+		i++;
 	}
-	while (*ptr >= '0' && *ptr <= '9')
+	while (ptr[i] >= '0' && ptr[i] <= '9')
 	{
-		ans = (ans * 10) + *ptr - '0';
-		ptr++;
+		ans = (ans * 10) + ptr[i] - '0';
+		i++;
 	}
 	return (ans * pos);
 }
