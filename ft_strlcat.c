@@ -17,6 +17,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	j;
 
+	if (!dst && size == 0)
+		return (ft_strlen(dst));
 	j = 0;
 	i = ft_strlen(dst);
 	if (size <= ft_strlen(dst))
@@ -34,14 +36,10 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 //int main()
 //{
-//	char dest[30];
-//	char test[30];
-//	char * src = (char *)"AAAAAAAAA";
-//	memset(dest, 'B', 4);
-//	memset(test, 'B', 4);
+//	char dest[] = "";
+
+//	char * src = (char *)"AAAAAA";
 
 //	printf("%ld\n",ft_strlcat(dest,src,6));
 //	printf("%s\n",dest);
-//	printf("%ld\n",strlcat(test,src,6));
-//	printf("%s\n",test);
 //}

@@ -17,7 +17,7 @@ int	check(char str, char const *set)
 	size_t	i;
 
 	i = 0;
-	while (set[i] != '\0')
+	while (set[i])
 	{
 		if (str == set[i])
 			return (1);

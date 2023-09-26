@@ -42,8 +42,9 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 //	int	i;
 //	char *b = (char *)a;
 
+//	printf("---------%s--------\n",b);
 //	i = 0;
-//	while(b[i] != '\0')
+//	while(b[i])
 //	{
 //		b[i] = 'o';
 //		i++;
@@ -79,5 +80,4 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 //	ft_lstadd_back(&head, ft_lstnew("dddd"));
 //	newHead = ft_lstmap(head,&f,del);
 //	ft_print(newHead);
-//	ft_lstclear(&head, del);
 //}

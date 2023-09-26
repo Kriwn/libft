@@ -26,7 +26,10 @@ int main()
 	int fd = open("test.txt",O_RDWR);
 	if (!fd)
 		printf("Pun\n");
+	ft_putchar_fd('b',fd);
+	ft_putchar_fd('\n',fd);
+	ft_putchar_fd('\0',fd);
+	ft_putchar_fd('\n',fd);
 	ft_putchar_fd('a',fd);
-	//fclose(fd);
 }
 */

@@ -16,6 +16,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
+	if (nmemb == SIZE_MAX || size == SIZE_MAX)
+		return (NULL);
 	ptr = malloc(nmemb * size);
 	if (!(ptr))
 		return (NULL);
@@ -28,6 +30,7 @@ int main()
 {
 	char *ptr;
 	ptr = ft_calloc(SIZE_MAX,SIZE_MAX);
-	printf("%s",ptr);
+	printf("%p",ptr);
 }
 */
+
