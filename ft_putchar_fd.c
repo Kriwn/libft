@@ -14,6 +14,8 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
+	if (!fd)
+		return ;
 	if (c < 0)
 		return ;
 	c = (unsigned char)c;

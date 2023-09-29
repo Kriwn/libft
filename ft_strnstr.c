@@ -20,6 +20,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	s_big = (char *)big;
+	if (!big && !little && len)
+		return (NULL);
 	if (!*little)
 		return (s_big);
 	while (big[i] && i < len)
