@@ -6,7 +6,7 @@
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 10:21:04 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/09/05 10:21:04 by krwongwa         ###   ########.fr       */
+/*   Updated: 2023/09/30 19:26:54 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	n = 0;
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (NULL);
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)

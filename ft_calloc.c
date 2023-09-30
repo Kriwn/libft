@@ -6,7 +6,7 @@
 /*   By: krwongwa <krwongwa@student.42bangkok.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 17:33:25 by krwongwa          #+#    #+#             */
-/*   Updated: 2023/09/01 17:33:25 by krwongwa         ###   ########.fr       */
+/*   Updated: 2023/09/30 19:33:42 by krwongwa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ptr = malloc(nmemb * size);
 	if (!(ptr))
 		return (NULL);
-	ft_bzero (ptr, nmemb * size + 1);
+	ft_bzero (ptr, nmemb * size);
 	return (ptr);
 }
 
