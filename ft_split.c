@@ -62,7 +62,10 @@ int	makearray(char **ptr, char const *s, char c)
 			len++;
 		ptr[i] = ft_substr(s, start, len);
 		if (!ptr[i])
-			return (freeall(&ptr), 1);
+		{
+			freeall(&ptr);
+			return (1);
+		}
 		start += len;
 		len = 0;
 		i++;
