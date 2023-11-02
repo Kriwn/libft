@@ -42,7 +42,7 @@ bonus : $(OBJS_NUS)
 	$(CC) -c $(CFLAGS) $^ -o $@
 
 clean:
-	rm -f $(OBJS) $(OBJS) $(OBJS_NUS)
+	rm -f $(OBJS)  $(OBJS_NUS)
 
 fclean: clean
 	rm -f $(NAME)

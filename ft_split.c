@@ -88,27 +88,29 @@ char	**ft_split(char const *s, char c)
 	return (ptr);
 }
 
-//int main()
-//{
-//	printf("%ld\n",count("hello!",' '));
-//	char **b = ft_split("hello!",' ');
-//	printf("%s|\n",b[0]);
-//	printf("%p|\n",b);
-//	freeall(&b);
-//	printf("%p|\n",b);
+/*
+int main()
+{
+	printf("%ld\n",count("hello!",' '));
+	char **b = ft_split("hello!",' ');
+	printf("%s|\n",b[0]);
+	printf("%p|\n",b);
+	freeall(&b);
+	printf("%p|\n",b);
 
-//	//printf("%s|\n",b[1]);
-//	//printf("%p|\n",b);
-//	//printf("%p|\n",b);
-//	//while (b[i])
-//	//{
-//	//	free(b[i]);
-//	//	b[i] = NULL;
-//	//}
-//	//free(b);
-//	//b = NULL;
+	printf("%s|\n",b[1]);
+	printf("%p|\n",b);
+	printf("%p|\n",b);
+	while (b[i])
+	{
+		free(b[i]);
+		b[i] = NULL;
+	}
+	free(b);
+	b = NULL;
 
-//	//printf("%p|\n",b);
-//	//printf("%s|\n",b[0]);
-//	//char **b = ft_split(0, 0);
-//}
+	printf("%p|\n",b);
+	printf("%s|\n",b[0]);
+	char **b = ft_split(0, 0);
+}
+*/

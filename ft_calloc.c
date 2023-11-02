@@ -37,4 +37,3 @@ int main()
 	printf("%p\n",str);
 }
 */
-
