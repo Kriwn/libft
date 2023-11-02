@@ -2,6 +2,3 @@ a.out
 *.o
 test.c
 *.a
-bonus
-libftTester
-libft-war-machine
